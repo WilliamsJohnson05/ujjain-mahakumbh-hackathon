@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "author": "Uri Shaked",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-pi-pico-w", "id": "pico", "top": -32.05, "left": -25.25, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -84,
+      "left": 145.8,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "board-ili9341-cap-touch",
+      "id": "lcd1",
+      "top": -95.24,
+      "left": -221.18,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "pico:GND.7", "bz1:1", "black", [ "h0" ] ],
+    [ "bz1:2", "pico:GP15", "green", [ "v192", "h-221.2", "v-28.8" ] ],
+    [ "pico:3V3_EN", "lcd1:VCC", "green", [ "h38.71", "v211.2", "h-268.8" ] ],
+    [ "lcd1:GND", "pico:GND.8", "black", [ "v19.2", "h76.8", "v-9.6", "h201.6", "v0" ] ],
+    [ "pico:GP17", "lcd1:CS", "green", [ "h19.51", "v57.64", "h-230.4" ] ],
+    [ "pico:GP21", "lcd1:RST", "green", [ "h9.91", "v134.4", "h-211.2", "v-9.6" ] ],
+    [ "pico:GP20", "lcd1:D/C", "green", [ "h19.51", "v134.4", "h-211.2", "v-57.6" ] ],
+    [ "pico:GP19", "lcd1:MOSI", "green", [ "h29.11", "v134.44", "h-201.6" ] ],
+    [ "pico:GP18", "lcd1:SCK", "green", [ "h77.11", "v134.44", "h-240" ] ],
+    [ "pico:3V3", "lcd1:LED", "green", [ "h96.31", "v211.2", "h-259.2" ] ],
+    [ "pico:GP16", "lcd1:MISO", "green", [ "v9.64", "h125.11", "v105.6", "h-268.8" ] ]
+  ],
+  "dependencies": {}
+}
